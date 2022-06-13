@@ -1,11 +1,10 @@
 import './App.css';
-import './Components/Cuadrado'
-import Tablero from './Components/Tablero';
+import Card from './Components/Card';
 
 function App() {
   return (
     <div className="App">
-      <Tablero/>
+      <Card/>
     </div>
   );
 }
