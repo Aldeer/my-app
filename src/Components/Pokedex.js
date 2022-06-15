@@ -4,24 +4,37 @@ import Pokemon from './Pokemon';
 
 
 const Pokedex = (props) => {
-    const { pokemons } = props;
-
+    console.log(props)
+    const {pokemons, page, setPage, total, loading} = props;
+    const lastPage = () => {
+        const previous = Math.max(page-1, 0);
+        setPage(previous);
+    }
+    const nextPage = () => {
+        const next = Math.min(page+1, total);
+        setPage(next);
+    }
+    
     return(
         <div>
             <div className='header'>
                 <h1>Pokedex</h1>
                 <Pagination
-                    page={1}
-                    totalPage={111}
-                    onLeftClick={console.log}
-                    onRightClick={console.log} 
+                    page={page+1}
+                    totalPages={total}
+                    onLeftClick={lastPage}
+                    onRightClick={nextPage}
                 />
             </div>
+            {loading ?
+            <div>Cargando pokemones...</div>
+            :
             <div className='pokedex-grid'>
                 {pokemons.map( (pokemon, index) => {
                     return <Pokemon pokemon={pokemon} key={pokemon.name}/>
                 })}
             </div>
+            }
         </div>
     );
 }

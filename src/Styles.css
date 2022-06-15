@@ -109,6 +109,16 @@ nav{
     flex-direction: row;
     align-items: center;
 }
+
+.card-bottom{
+    display: flex;
+    flex-direction: row;
+}
+
+.pokemon-favorite{
+    display: flex;
+    justify-content: left;
+}
 .App{
     font-family: sans-serif;
 }
